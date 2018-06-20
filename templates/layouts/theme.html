@@ -3,9 +3,19 @@
 <html lang="ja">
     <head>
         {{ template "head" . }}
+        <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
+        <link href="/css/theme.css" rel="stylesheet">
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97008781-2"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-97008781-2');
+        </script>
     </head>
     <body>
-    <div class="container theme-showcase" role="main">
+    <div>
         {{ template "content" . }}
     </div>
 

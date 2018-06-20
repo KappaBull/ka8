@@ -1,6 +1,7 @@
 {{ define "content" }}
-<div class="jumbotron">
+<div>
     <h1>{{printf "%s" .Title}}</h1>
+    <img src="{{printf "%s" .GravatarURL}}" />
     <p>
         {{printf "%s" .Message}}
     </p>
@@ -8,5 +9,5 @@
 {{ end }}
 
 {{ define "head" }}
-  <title>{{printf "%s" .Title}}</title>
+    <title>{{printf "%s" .Title}}</title>
 {{ end }}
