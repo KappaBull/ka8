@@ -1,0 +1,12 @@
+{{ define "content" }}
+<div class="jumbotron">
+    <h1>{{printf "%s" .Title}}</h1>
+    <p>
+        {{printf "%s" .Message}}
+    </p>
+</div>
+{{ end }}
+
+{{ define "head" }}
+  <title>{{printf "%s" .Title}}</title>
+{{ end }}
