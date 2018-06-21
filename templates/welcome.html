@@ -1,13 +1,40 @@
 {{ define "content" }}
-<div>
-    <h1>{{printf "%s" .Title}}</h1>
-    <img src="{{printf "%s" .GravatarURL}}" />
-    <p>
-        {{printf "%s" .Message}}
-    </p>
-</div>
+      <!-- First Container -->
+      <div class="container-fluid bg-1 text-center">
+        <h3 class="margin">{{printf "%s" .Title}}</h3>
+        <img src="{{printf "%s" .GravatarURL}}" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="300" height="300">
+        <h3>{{printf "%s" .Message}}</h3>
+      </div>
+      
+      <!-- Second Container -->
+      <div class="container-fluid bg-2 text-center">
+        <h3 class="margin">What Am I?</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+        <!-- <a href="#" class="btn btn-default btn-lg">
+          <span class="glyphicon glyphicon-search"></span> Search
+        </a> -->
+      </div>
+      
+      <!-- Third Container (Grid) -->
+      <div class="container-fluid bg-3 text-center">    
+        <h3 class="margin">Work's</h3><br>
+        <div class="row">
+          <div class="col-sm-4">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <img src="birds1.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+          </div>
+          <div class="col-sm-4"> 
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <img src="birds2.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+          </div>
+          <div class="col-sm-4"> 
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <img src="birds3.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+          </div>
+        </div>
+      </div>
 {{ end }}
 
 {{ define "head" }}
-    <title>{{printf "%s" .Title}}</title>
+
 {{ end }}

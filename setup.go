@@ -48,7 +48,7 @@ func welcomeHandler(w http.ResponseWriter, r *http.Request) {
 	message := Welcome{
 		Title:       myname,
 		Message:     "Hosting to GAE/go",
-		GravatarURL: _GetGravatarURL("128"),
+		GravatarURL: _GetGravatarURL("300"),
 	}
 	templates["welcome.html"].ExecuteTemplate(w, "outerTheme", &message)
 }
