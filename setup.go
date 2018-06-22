@@ -1,4 +1,4 @@
-package bootstrapquickstart
+package ka8
 
 import (
 	"crypto/md5"
@@ -48,12 +48,12 @@ func welcomeHandler(w http.ResponseWriter, r *http.Request) {
 	message := Welcome{
 		Title:       myname,
 		Message:     "Hosting to GAE/go",
-		GravatarURL: _GetGravatarURL("300"),
+		GravatarURL: getGravatarURL("300"),
 	}
 	templates["welcome.html"].ExecuteTemplate(w, "outerTheme", &message)
 }
 
-func _GetGravatarURL(size string) string {
+func getGravatarURL(size string) string {
 	hasher := md5.New()
 	hasher.Write([]byte(mail))
 	return "http://www.gravatar.com/avatar/" + hex.EncodeToString(hasher.Sum(nil)) + ".jpg?s=" + size
