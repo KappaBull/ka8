@@ -41,14 +41,17 @@ func initializeTemplates() {
 type Welcome struct {
 	Title       string
 	Message     string
+	AvaterSize  string
 	GravatarURL string
 }
 
 func welcomeHandler(w http.ResponseWriter, r *http.Request) {
+	iconSize := "300"
 	message := Welcome{
 		Title:       myname,
 		Message:     "Hosting to GAE/go",
-		GravatarURL: getGravatarURL("300"),
+		AvaterSize:  iconSize,
+		GravatarURL: getGravatarURL(iconSize),
 	}
 	templates["welcome.html"].ExecuteTemplate(w, "outerTheme", &message)
 }

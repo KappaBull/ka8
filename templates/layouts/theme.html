@@ -20,6 +20,17 @@
             gtag('config', 'UA-97008781-2');
         </script>
         <style>
+            #particles-js {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                background-color: #1abc9c;
+                background-image: url("");
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: 50% 50%;
+            }
             body {
                 font: 20px "Noto Sans Japanese", sans-serif;
                 line-height: 1.8;
@@ -28,19 +39,19 @@
             p {font-size: 16px;}
             .margin {margin-bottom: 45px;}
             .bg-1 { 
-                background-color: #1abc9c; /* Green */
+                background-color: #1abc9c31; /* Green */
                 color: #ffffff;
             }
             .bg-2 { 
-                background-color: #474e5d; /* Dark Blue */
+                background-color: #474e5d31; /* Dark Blue */
                 color: #ffffff;
             }
             .bg-3 { 
-                background-color: #ffffff; /* White */
+                background-color: #ffffff31; /* White */
                 color: #555555;
             }
             .bg-4 { 
-                background-color: #2f2f2f; /* Black Gray */
+                background-color: #2f2f2f31; /* Black Gray */
                 color: #fff;
             }
             .container-fluid {
@@ -62,6 +73,46 @@
         </style>
     </head>
     <body>
+        <div id="particles-js"></div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.0.0/particles.min.js"></script>
+        <script>
+            particlesJS('particles-js', {
+                particles: {
+                    color: '#fff',
+                    shape: 'circle', // "circle", "edge" or "triangle"
+                    opacity: 0.5,
+                    size: 2,
+                    size_random: true,
+                    nb: 200,
+                    line_linked: {
+                        enable_auto: true,
+                        distance: 250,
+                        color: '#fff',
+                        opacity: 0.5,
+                        width: 1,
+                        condensed_mode: {
+                            enable: true,
+                            rotateX: 600,
+                            rotateY: 600
+                        }
+                    },
+                    anim: {
+                        enable: true,
+                        speed: 2
+                    }
+                },
+                interactivity: {
+                    enable: false,
+                    mouse: {
+                        distance: 250
+                    },
+                    detect_on: 'canvas', // "canvas" or "window"
+                    mode: 'grab'
+                },
+                /* Retina Display Support */
+                retina_detect: false
+            });
+        </script>
         <!-- Navbar -->
         <!-- <nav class="navbar navbar-default">
             <div class="container">
