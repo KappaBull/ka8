@@ -57,7 +57,7 @@ func welcomeHandler(w http.ResponseWriter, r *http.Request) {
 	iconSize := "300"
 	message := Welcome{
 		Title:       myname,
-		Message:     "Hosting to GAE/go",
+		Message:     "自宅にブレードサーバーラックがあるゲームのフロント作ってる人",
 		AvaterSize:  iconSize,
 		GravatarURL: getGravatarURL(iconSize),
 	}

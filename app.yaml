@@ -7,13 +7,12 @@ automatic_scaling:
   min_pending_latency: 3000ms
   max_pending_latency: automatic
 handlers:
-# - url: /css
-#   static_dir: css
-#   mime_type: text/css
-
-# - url: /bootstrap/js
-#   static_dir: bootstrap/js
-#   mime_type: application/javascript
+  - url: /css
+    static_dir: css
+    mime_type: text/css
+  - url: /js
+    static_dir: js
+    mime_type: application/javascript
 
 # - url: /bootstrap/fonts/(.*\.(woff|woff2|ttf))$
 #   upload: bootstrap/fonts/.*\.(woff|woff2|ttf)$

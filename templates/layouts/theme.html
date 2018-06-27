@@ -9,110 +9,15 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/theme.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97008781-2"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'UA-97008781-2');
-        </script>
-        <style>
-            #particles-js {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                z-index: -1;
-                background-color: #1abc9c;
-                background-image: url("");
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-position: 50% 50%;
-            }
-            body {
-                font: 20px "Noto Sans Japanese", sans-serif;
-                line-height: 1.8;
-                color: #f5f6f7;
-            }
-            p {font-size: 16px;}
-            .margin {margin-bottom: 45px;}
-            .bg-1 { 
-                background-color: #1abc9c31; /* Green */
-                color: #ffffff;
-            }
-            .bg-2 { 
-                background-color: #474e5d31; /* Dark Blue */
-                color: #ffffff;
-            }
-            .bg-3 { 
-                background-color: #ffffff31; /* White */
-                color: #555555;
-            }
-            .bg-4 { 
-                background-color: #2f2f2f31; /* Black Gray */
-                color: #fff;
-            }
-            .container-fluid {
-                padding-top: 70px;
-                padding-bottom: 70px;
-            }
-            .navbar {
-                padding-top: 15px;
-                padding-bottom: 15px;
-                border: 0;
-                border-radius: 0;
-                margin-bottom: 0;
-                font-size: 12px;
-                letter-spacing: 5px;
-            }
-            .navbar-nav  li a:hover {
-                color: #1abc9c !important;
-            }
-        </style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+        <script src="/js/theme.js"></script>
     </head>
     <body>
         <div id="particles-js"></div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.0.0/particles.min.js"></script>
-        <script>
-            particlesJS('particles-js', {
-                particles: {
-                    color: '#fff',
-                    shape: 'circle', // "circle", "edge" or "triangle"
-                    opacity: 0.5,
-                    size: 2,
-                    size_random: true,
-                    nb: 200,
-                    line_linked: {
-                        enable_auto: true,
-                        distance: 250,
-                        color: '#fff',
-                        opacity: 0.5,
-                        width: 1,
-                        condensed_mode: {
-                            enable: true,
-                            rotateX: 600,
-                            rotateY: 600
-                        }
-                    },
-                    anim: {
-                        enable: true,
-                        speed: 2
-                    }
-                },
-                interactivity: {
-                    enable: false,
-                    mouse: {
-                        distance: 250
-                    },
-                    detect_on: 'canvas', // "canvas" or "window"
-                    mode: 'grab'
-                },
-                /* Retina Display Support */
-                retina_detect: false
-            });
-        </script>
         <!-- Navbar -->
         <!-- <nav class="navbar navbar-default">
             <div class="container">
@@ -133,15 +38,30 @@
                 </div>
             </div>
         </nav> -->
-
         {{ template "content" . }}
-
         <!-- Footer -->
         <footer class="container-fluid bg-4 text-center">
             <p>このサイトはGAE/GOとBoostrapで良い感じに作成されています。</p> 
         </footer>
+        <script src="/js/lib.bundled.js"></script>
+        <script>
+            (function () {
+            var container = document.querySelector('.js-qiita-widget');
+            new QiitaWidget(container, {
+                subject: '人気の投稿',      // 見出し
+                userId: '{{printf "%s" .Title}}',          // QiitaのユーザーID
+                useShuffle: false,        // trueで表示記事をランダムに選択する
+                sortByLike: true,         // trueで投稿を「いいね」数順でソートする
+                useTransition: true,      // trueでロード直後のアニメーションを表示
+                filterByLikesFrom: 0,     // 表示する記事の最低いいね数(0でフィルタ無効)
+                maxToShow: 5,             // 最終的に表示する記事の最大件数
+                cacheAge: 15 * 60 * 1000, // JSONレスポンスのキャッシュ有効時間(ミリ秒)
+                perPage: 100,             // 一度のリクエストで取得する記事数(1〜100)
+                maxRequest: 10            // perPage * maxRequest = 取得を試みる最大記事件数
+            }).init();
+            })();
+        </script>
     </body>
-
 </html>
 {{ end }}
 
