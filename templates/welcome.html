@@ -14,12 +14,14 @@
         <div class="col-sm-3"> <p>Docker</p> </div>
         <div class="col-sm-3"> <p>Jenkins</p> </div>
         <div class="col-sm-3"> <p>Ruby</p> </div>
-        <div class="col-sm-3"> <p>RaspberryPi</p> </div>
-        <div class="col-sm-3"> <p>FreeNas</p> </div>
         <div class="col-sm-3"> <p>Wordpress</p> </div>
         <div class="col-sm-3"> <p>Xcode</p> </div>
         <div class="col-sm-3"> <p>GoogleAppEngine</p> </div>
         <div class="col-sm-3"> <p>GoogleAppScript</p> </div>
+        <div class="col-sm-3"> <p>RaspberryPi</p> </div>
+        <div class="col-sm-3"> <p>FreeNas</p> </div>
+        <div class="col-sm-3"> <p>CoreOS</p> </div>
+        <div class="col-sm-3"> <p>RancherOS</p> </div>
     </div>
       <!-- Third Container (Grid) -->
       <div class="container-fluid bg-3 text-center">
@@ -49,9 +51,9 @@
                 </template>
                 <template id="qiita-article-tpl">
                     <li class="qiita-article-list__item transition transition--s5">
-                    <a class="qiita-article js-url transition transition__inner" target="_blank">
-                        <h3 class="qiita-article__title js-title"></h3>
-                    </a>
+                        <a class="qiita-article js-url transition transition__inner" target="_blank">
+                            <h3 class="qiita-article__title js-title"></h3>
+                        </a>
                     </li>
                 </template>
                 <section class="qiita-widget js-qiita-widget">
@@ -61,10 +63,29 @@
                         <ul class="qiita-article-list js-qiita-article"></ul>
                     </section>
                 </section>
+                <script src="/js/lib.bundled.js"></script>
+                <script>
+                    (function () {
+                    var container = document.querySelector('.js-qiita-widget');
+                    new QiitaWidget(container, {
+                        subject: '人気の投稿',      // 見出し
+                        userId: '{{printf "%s" .Title}}',          // QiitaのユーザーID
+                        useShuffle: false,        // trueで表示記事をランダムに選択する
+                        sortByLike: true,         // trueで投稿を「いいね」数順でソートする
+                        useTransition: true,      // trueでロード直後のアニメーションを表示
+                        filterByLikesFrom: 0,     // 表示する記事の最低いいね数(0でフィルタ無効)
+                        maxToShow: 5,             // 最終的に表示する記事の最大件数
+                        cacheAge: 15 * 60 * 1000, // JSONレスポンスのキャッシュ有効時間(ミリ秒)
+                        perPage: 100,             // 一度のリクエストで取得する記事数(1〜100)
+                        maxRequest: 10            // perPage * maxRequest = 取得を試みる最大記事件数
+                    }).init();
+                    })();
+                </script>
             </div>
             <div class="col-sm-4"> 
                 <p>Twitter</p>
-                <a class="twitter-timeline" data-height="400" data-theme="dark" href="https://twitter.com/KappaBull?ref_src=twsrc%5Etfw">Tweets by KappaBull</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <a class="twitter-timeline" data-height="400" data-theme="dark" href="https://twitter.com/KappaBull?ref_src=twsrc%5Etfw">Tweets by KappaBull</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
         </div>
       </div>

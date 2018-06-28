@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"path/filepath"
+	"time"
 )
 
 const (
@@ -54,6 +55,12 @@ type Welcome struct {
 
 func welcomeHandler(w http.ResponseWriter, r *http.Request) {
 	addSafeHeaders(w)
+
+	//キャッシュ
+	now := time.Now().AddDate(0, 0, 1)
+	w.Header().Set("Cache-Control", "max-age=300, public")
+	w.Header().Set("Last-Modified", now.Format(http.TimeFormat))
+
 	iconSize := "300"
 	message := Welcome{
 		Title:       myname,
