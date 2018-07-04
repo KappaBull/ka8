@@ -8,12 +8,12 @@
         <meta name="viewport" content="width=device-width,initial-scale=1">
 
         <meta content="{{printf "%s" .Title}}'s Site" name="title">
-        <meta content="プロフィール的な物" name="description">
+        <meta content="プロフィール的な実験サイト" name="description">
         <meta content='{{printf "%s" .Title}}' name='keywords'>
 
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="{{printf "%s" .Title}}'s Site"/>
-        <meta property="og:description" content="プロフィール的な物" />
+        <meta property="og:description" content="プロフィール的な実験サイト" />
         <meta property="og:image" content="{{printf "%s" .GravatarURL}}" />
         <meta property="og:url" content="https://ka8.app/" />
         <meta property="og:site_name" content="{{printf "%s" .Title}}"/>
@@ -56,7 +56,7 @@
         {{ template "content" . }}
         <!-- Footer -->
         <footer class="container-fluid bg-4 text-center">
-            <p>このサイトはGAE/GOとBoostrapで良い感じに作成されています。</p> 
+            <p>このサイトはGAE/GOとBoostrapで良い感じに作りましたがreactを使いたい</p> 
         </footer>
     </body>
 </html>
