@@ -51,6 +51,7 @@ type Welcome struct {
 	Message     string
 	AvaterSize  string
 	GravatarURL string
+	Date        string
 }
 
 func welcomeHandler(w http.ResponseWriter, r *http.Request) {
@@ -67,6 +68,7 @@ func welcomeHandler(w http.ResponseWriter, r *http.Request) {
 		Message:     "自宅にブレードサーバーラックがあるゲームのフロント作ってる人",
 		AvaterSize:  iconSize,
 		GravatarURL: getGravatarURL(iconSize),
+		Date:        time.Now().Format("20060102"),
 	}
 	templates["welcome.html"].ExecuteTemplate(w, "outerTheme", &message)
 }
