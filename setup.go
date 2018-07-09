@@ -46,6 +46,7 @@ func addSafeHeaders(w http.ResponseWriter) {
 	w.Header().Set("Strict-Transport-Security", "max-age=2592000; includeSubDomains")
 }
 
+//Welcome PageData
 type Welcome struct {
 	Title       string
 	Message     string
