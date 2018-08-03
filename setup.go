@@ -2,6 +2,7 @@ package ka8
 
 import (
 	"crypto/md5"
+	"crypto/sha"
 	"encoding/hex"
 	"html/template"
 	"log"
@@ -78,4 +79,10 @@ func getGravatarURL(size string) string {
 	hasher := md5.New()
 	hasher.Write([]byte(mail))
 	return "http://www.gravatar.com/avatar/" + hex.EncodeToString(hasher.Sum(nil)) + ".jpg?s=" + size
+}
+
+func sriHashGenerate(url_ string) string {
+	hasher := sha.New()
+	hasher.Write([]byte(url_))
+	return hex.EncodeToString(hasher.Sum(nil))
 }

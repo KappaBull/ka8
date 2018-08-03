@@ -49,7 +49,7 @@
                         <ul class="qiita-article-list js-qiita-article"></ul>
                     </section>
                 </section>
-                <script src="/js/lib.bundled.js"></script>
+                <script src="/js/qiita-widget.js"></script>
                 <script>
                     (function () {
                     var container = document.querySelector('.js-qiita-widget');
@@ -81,7 +81,6 @@
             <script>
                 google.charts.load('current', {'packages':['corechart']});
                 google.charts.setOnLoadCallback(drawSeriesChart);
-            
                 function drawSeriesChart() {
                     var data = google.visualization.arrayToDataTable([
                         ['ID', 'やる気', '経験年数', '実務経験', 'スキル1-100'],
@@ -99,7 +98,6 @@
                         ['rancherOS', 2.5, 0.3, '無', 20],
                         ['FreeNas', 2, 0.5, '無', 20]
                     ]);
-                
                     var options = {
                         title: '使った事ある技術(2018/7)',
                         hAxis: {title: 'やる気1~5'},
@@ -121,7 +119,6 @@
                         },
                         colors:['#3A6DC4','#38BC38', '#C63B3B']
                     };
-                
                     var chart = new google.visualization.BubbleChart(document.getElementById('series_chart_div'));
                     chart.draw(data, options);
                 }

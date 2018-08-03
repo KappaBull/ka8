@@ -21,53 +21,26 @@
         <meta content="@twitter_acount" name="twitter:site" />
 
         <title>{{printf "%s" .Title}}'s Site</title>
-        <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" rel="stylesheet" /> -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css">
         <link rel="stylesheet" href="/css/theme.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97008781-2"></script>
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script> -->
         <script src="/js/theme.js"></script>
     </head>
     <body>
-        <!-- <div id="particles-js"></div> -->
-        <!-- Navbar -->
-        <!-- <nav class="navbar navbar-default">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Me</a>
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">WHO</a></li>
-                    <li><a href="#">WHAT</a></li>
-                    <li><a href="#">WHERE</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav> -->
         {{ template "content" . }}
-        <!-- Footer -->
         <footer class="container-fluid bg-4 text-center">
-            <p>このサイトはGAE/GOとBoostrapで良い感じに作りましたがreactを使いたい</p> 
+            <p>このサイトはGAE/GOとBoostrapで良い感じに作りました。</p> 
         </footer>
-    <!-- Twitter universal website tag code -->
     <script>
         !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
         },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
         a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
-        // Insert Twitter Pixel ID and Standard Event data below
         twq('init','nztwa');
         twq('track','PageView');
     </script>
-    <!-- End Twitter universal website tag code -->
     </body>
 </html>
 {{ end }}
