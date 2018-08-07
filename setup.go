@@ -34,8 +34,18 @@ func initializeTemplates() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	widgets, err := filepath.Glob("templates/widget/*.html")
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	for _, layout := range layouts {
+		//widget Add WelcomePage
+		if filepath.Base(layout) == "welcome.html" {
+			welcomeLayout := []string{layout, "templates/layouts/theme.html"}
+			templates[filepath.Base(layout)] = template.Must(append(welcomeLayout, widgets...))
+		}
+
 		templates[filepath.Base(layout)] = template.Must(template.ParseFiles(layout, "templates/layouts/theme.html"))
 	}
 }
@@ -49,7 +59,7 @@ func addSafeHeaders(w http.ResponseWriter) {
 
 //Welcome PageData
 type Welcome struct {
-	Title       string
+	Name        string
 	Message     string
 	AvaterSize  string
 	GravatarURL string
@@ -66,7 +76,7 @@ func welcomeHandler(w http.ResponseWriter, r *http.Request) {
 
 	iconSize := "300"
 	message := Welcome{
-		Title:       myname,
+		Name:        myname,
 		Message:     "自宅にブレードサーバーラックがあるゲームのフロント作ってる人",
 		AvaterSize:  iconSize,
 		GravatarURL: getGravatarURL(iconSize),
