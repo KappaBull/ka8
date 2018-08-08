@@ -2,7 +2,7 @@ package ka8
 
 import (
 	"crypto/md5"
-	"crypto/sha"
+	// "crypto/sha"
 	"encoding/hex"
 	"html/template"
 	"log"
@@ -34,18 +34,8 @@ func initializeTemplates() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	widgets, err := filepath.Glob("templates/widget/*.html")
-	if err != nil {
-		log.Fatal(err)
-	}
 
 	for _, layout := range layouts {
-		//widget Add WelcomePage
-		if filepath.Base(layout) == "welcome.html" {
-			welcomeLayout := []string{layout, "templates/layouts/theme.html"}
-			templates[filepath.Base(layout)] = template.Must(append(welcomeLayout, widgets...))
-		}
-
 		templates[filepath.Base(layout)] = template.Must(template.ParseFiles(layout, "templates/layouts/theme.html"))
 	}
 }
@@ -91,8 +81,8 @@ func getGravatarURL(size string) string {
 	return "http://www.gravatar.com/avatar/" + hex.EncodeToString(hasher.Sum(nil)) + ".jpg?s=" + size
 }
 
-func sriHashGenerate(url_ string) string {
-	hasher := sha.New()
-	hasher.Write([]byte(url_))
-	return hex.EncodeToString(hasher.Sum(nil))
-}
+// func sriHashGenerate(url_ string) string {
+// 	hasher := sha.New()
+// 	hasher.Write([]byte(url_))
+// 	return hex.EncodeToString(hasher.Sum(nil))
+// }
