@@ -32,6 +32,7 @@ func init() {
 func defineRoutes(r *gin.Engine) {
 	iconSize := "300"
 	r.GET("/", func(c *gin.Context) {
+		addSafeHeaders(c)
 		//キャッシュ
 		now := time.Now().AddDate(0, 0, 1)
 		c.Header("Cache-Control", "max-age=300, public")
@@ -66,34 +67,6 @@ func addSafeHeaders(c *gin.Context) {
 	c.Header("X-Frame-Options", "DENY")
 	c.Header("Strict-Transport-Security", "max-age=2592000; includeSubDomains")
 }
-
-// //Welcome PageData
-// type Welcome struct {
-// 	Name        string
-// 	Message     string
-// 	AvaterSize  string
-// 	GravatarURL string
-// 	Date        string
-// }
-
-// func welcomeHandler(w http.ResponseWriter, r *http.Request) {
-// 	addSafeHeaders(w)
-
-// 	//キャッシュ
-// 	now := time.Now().AddDate(0, 0, 1)
-// 	w.Header().Set("Cache-Control", "max-age=300, public")
-// 	w.Header().Set("Last-Modified", now.Format(http.TimeFormat))
-
-// 	iconSize := "300"
-// 	message := Welcome{
-// 		Name:        myname,
-// 		Message:     "自宅にブレードサーバーラックがあるゲームのフロント作ってる人",
-// 		AvaterSize:  iconSize,
-// 		GravatarURL: getGravatarURL(iconSize),
-// 		Date:        time.Now().Format("20060102"),
-// 	}
-// 	templates["welcome.html"].ExecuteTemplate(w, "outerTheme", &message)
-// }
 
 func getGravatarURL(size string) string {
 	hasher := md5.New()
