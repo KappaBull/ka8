@@ -80,9 +80,3 @@ func getGravatarURL(size string) string {
 	hasher.Write([]byte(mail))
 	return "http://www.gravatar.com/avatar/" + hex.EncodeToString(hasher.Sum(nil)) + ".jpg?s=" + size
 }
-
-// func sriHashGenerate(url_ string) string {
-// 	hasher := sha.New()
-// 	hasher.Write([]byte(url_))
-// 	return hex.EncodeToString(hasher.Sum(nil))
-// }
