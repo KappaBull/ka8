@@ -1,0 +1,59 @@
+userprofile:
+  name: KappaBull
+  email: kappa8v11@gmail.com
+  bio:
+    short: 自動化大好き系雑食エンジニア
+    long: 自宅にブレードサーバーラックがあるゲームのフロント作ってる人
+  usedtech:
+    - name: Unity3d 80
+      experience: 3.2
+      business: 有
+      durability: 5
+    - name: Golang 60
+      experience: 0.7
+      business: 有
+      durability: 5
+    - name: Docker 60
+      experience: 2
+      business: 有
+      durability: 4.5
+    - name: Jenkins 80
+      experience: 3
+      business: 有
+      durability: 2.7
+    - name: Ruby 40
+      experience: 2
+      business: 少し
+      durability: 1.5
+    - name: WordPress 20
+      experience: 0.2
+      business: 少し
+      durability: 1
+    - name: Xcode 70
+      experience: 3.1
+      business: 有
+      durability: 3
+    - name: GoogleAppEngine 10
+      experience: 0.2
+      business: 無
+      durability: 4.5
+    - name: GoogleAppScript 20
+      experience: 0.5
+      business: 少し
+      durability: 3
+    - name: RaspberryPi 10
+      experience: 0.4
+      business: 無
+      durability: 3.5
+    - name: coreOS 40
+      experience: 1.5
+      business: 少し
+      durability: 1
+    - name: rancherOS 20
+      experience: 0.3
+      business: 無
+      durability: 2.5
+    - name: FreeNas 20
+      experience: 0.5
+      business: 無
+      durability: 2

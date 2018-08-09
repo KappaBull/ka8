@@ -2,6 +2,7 @@ package ka8
 
 import (
 	"crypto/md5"
+	// "crypto/sha"
 	"encoding/hex"
 	"html/template"
 	"log"
@@ -48,7 +49,7 @@ func addSafeHeaders(w http.ResponseWriter) {
 
 //Welcome PageData
 type Welcome struct {
-	Title       string
+	Name        string
 	Message     string
 	AvaterSize  string
 	GravatarURL string
@@ -65,7 +66,7 @@ func welcomeHandler(w http.ResponseWriter, r *http.Request) {
 
 	iconSize := "300"
 	message := Welcome{
-		Title:       myname,
+		Name:        myname,
 		Message:     "自宅にブレードサーバーラックがあるゲームのフロント作ってる人",
 		AvaterSize:  iconSize,
 		GravatarURL: getGravatarURL(iconSize),
@@ -79,3 +80,9 @@ func getGravatarURL(size string) string {
 	hasher.Write([]byte(mail))
 	return "http://www.gravatar.com/avatar/" + hex.EncodeToString(hasher.Sum(nil)) + ".jpg?s=" + size
 }
+
+// func sriHashGenerate(url_ string) string {
+// 	hasher := sha.New()
+// 	hasher.Write([]byte(url_))
+// 	return hex.EncodeToString(hasher.Sum(nil))
+// }
