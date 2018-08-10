@@ -4,22 +4,41 @@ import (
 	"crypto/md5"
 	"encoding/hex"
 	"html/template"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"path/filepath"
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/tdewolff/minify"
+	"github.com/tdewolff/minify/html"
+	yaml "gopkg.in/yaml.v2"
 )
 
-const (
-	myname = "KappaBull"
-	mail   = "kappa8v11@gmail.com"
-)
+//Profile YamlImportData
+type Profile struct {
+	Name  string  `yaml:"name"`
+	Email string  `yaml:"email"`
+	Bio   BioData `yaml:"bio"`
+}
+
+//BioData YamlImportData
+type BioData struct {
+	Short string `yaml:"short"`
+	Long  string `yaml:"long"`
+}
+
+//SiteSettings サイト構成データ
+type SiteSettings struct {
+	profile Profile
+}
 
 var templates = make(map[string]*template.Template)
+var setting SiteSettings
 
 func init() {
+	importYaml()
 	initializeTemplates()
 	r := gin.New()
 	r.SetHTMLTemplate(templates["welcome.html"])
@@ -27,6 +46,18 @@ func init() {
 	r.Static("/js", "./js")
 
 	defineRoutes(r)
+}
+
+func importYaml() {
+	buf, err := ioutil.ReadFile("settings/profile.yaml")
+	if err != nil {
+		panic(err)
+	}
+	// structにUnmasrshal
+	err = yaml.Unmarshal(buf, &setting.profile)
+	if err != nil {
+		panic(err)
+	}
 }
 
 func defineRoutes(r *gin.Engine) {
@@ -39,11 +70,13 @@ func defineRoutes(r *gin.Engine) {
 		c.Header("Last-Modified", now.Format(http.TimeFormat))
 
 		c.HTML(http.StatusOK, "outerTheme", gin.H{
-			"Name":        myname,
-			"Message":     "自宅にブレードサーバーラックがあるゲームのフロント作ってる人",
-			"AvaterSize":  iconSize,
-			"GravatarURL": getGravatarURL(iconSize),
-			"Date":        time.Now().Format("20060102"),
+			"Name":         setting.profile.Name,
+			"LongMessage":  setting.profile.Bio.Long,
+			"ShortMessage": setting.profile.Bio.Short,
+			"Email":        setting.profile.Email,
+			"AvaterSize":   iconSize,
+			"GravatarURL":  getGravatarURL(iconSize),
+			"Date":         time.Now().Format("20060102"),
 		})
 	})
 
@@ -57,7 +90,7 @@ func initializeTemplates() {
 	}
 
 	for _, layout := range layouts {
-		templates[filepath.Base(layout)] = template.Must(template.ParseFiles(layout, "templates/theme.html"))
+		templates[filepath.Base(layout)] = template.Must(template.ParseFiles("templates/theme.html", layout))
 	}
 }
 
@@ -70,6 +103,33 @@ func addSafeHeaders(c *gin.Context) {
 
 func getGravatarURL(size string) string {
 	hasher := md5.New()
-	hasher.Write([]byte(mail))
+	hasher.Write([]byte(setting.profile.Email))
 	return "http://www.gravatar.com/avatar/" + hex.EncodeToString(hasher.Sum(nil)) + ".jpg?s=" + size
+}
+
+func compileTemplates(filenames ...string) (*template.Template, error) {
+	m := minify.New()
+	m.AddFunc("text/html", html.Minify)
+
+	var tmpl *template.Template
+	for _, filename := range filenames {
+		name := filepath.Base(filename)
+		if tmpl == nil {
+			tmpl = template.New(name)
+		} else {
+			tmpl = tmpl.New(name)
+		}
+
+		b, err := ioutil.ReadFile(filename)
+		if err != nil {
+			return nil, err
+		}
+
+		mb, err := m.Bytes("text/html", b)
+		if err != nil {
+			return nil, err
+		}
+		tmpl.Parse(string(mb))
+	}
+	return tmpl, nil
 }

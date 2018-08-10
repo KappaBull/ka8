@@ -3,9 +3,9 @@
     <div class="container-fluid bg-1 text-center">
         <h3 class="margin">{{printf "%s" .Name}}</h3>
         <img src="{{printf "%s" .GravatarURL}}" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="{{printf "%s" .AvaterSize}}" height="{{printf "%s" .AvaterSize}}">
-        <h5>{{printf "%s" .Message}}</h5>
-        <h5>自動化大好き系雑食エンジニア</h5>
-        <h5>Mail：kappa8v11@gmail.com</h5>
+        <h5>{{printf "%s" .LongMessage}}</h5>
+        <h5>{{printf "%s" .ShortMessage}}</h5>
+        <h5>Mail：{{printf "%s" .Email}}</h5>
     </div>
     <!-- Second Container -->
     <div class="container-fluid bg-2 text-center">
