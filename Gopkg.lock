@@ -63,30 +63,6 @@
   version = "1.0.1"
 
 [[projects]]
-  digest = "1:39521a8487b2da190463cef4fd2de5d364c52f1f920fa723cf265ebcad24748f"
-  name = "github.com/tdewolff/minify"
-  packages = [
-    ".",
-    "html",
-  ]
-  pruneopts = "UT"
-  revision = "8d72a4127ae33b755e95bffede9b92e396267ce2"
-  version = "v2.3.5"
-
-[[projects]]
-  digest = "1:2b3ac22f82d2d88620157486c59f6c6903ee9f342a38903461dc50722da5ee90"
-  name = "github.com/tdewolff/parse"
-  packages = [
-    ".",
-    "buffer",
-    "html",
-    "strconv",
-  ]
-  pruneopts = "UT"
-  revision = "d739d6fccb0971177e06352fea02d3552625efb1"
-  version = "v2.3.3"
-
-[[projects]]
   digest = "1:03aa6e485e528acb119fb32901cf99582c380225fc7d5a02758e08b180cb56c3"
   name = "github.com/ugorji/go"
   packages = ["codec"]
@@ -123,8 +99,6 @@
   analyzer-version = 1
   input-imports = [
     "github.com/gin-gonic/gin",
-    "github.com/tdewolff/minify",
-    "github.com/tdewolff/minify/html",
     "gopkg.in/yaml.v2",
   ]
   solver-name = "gps-cdcl"

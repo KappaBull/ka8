@@ -1,13 +1,19 @@
 runtime: go
-api_version: go1
+api_version: go1.9
 instance_class: F1
 automatic_scaling:
   min_idle_instances: automatic
   max_idle_instances: 1
   min_pending_latency: 3000ms
   max_pending_latency: automatic
-nobuild_files: vendor/
-skip_files: vendor/.*$
+nobuild_files: 
+  - vendor/
+  - Gopkg.lock #TODO: GAE/Go1.10対応時に削除
+  - Gopkg.toml
+skip_files:
+  - vendor/.*$
+  - Gopkg.lock #TODO: GAE/Go1.10対応時に削除
+  - Gopkg.toml
 handlers:
   - url: /css
     static_dir: css

@@ -11,8 +11,6 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/tdewolff/minify"
-	"github.com/tdewolff/minify/html"
 	yaml "gopkg.in/yaml.v2"
 )
 
@@ -107,29 +105,29 @@ func getGravatarURL(size string) string {
 	return "http://www.gravatar.com/avatar/" + hex.EncodeToString(hasher.Sum(nil)) + ".jpg?s=" + size
 }
 
-func compileTemplates(filenames ...string) (*template.Template, error) {
-	m := minify.New()
-	m.AddFunc("text/html", html.Minify)
+// func compileTemplates(filenames ...string) (*template.Template, error) {
+// 	m := minify.New()
+// 	m.AddFunc("text/html", html.Minify)
 
-	var tmpl *template.Template
-	for _, filename := range filenames {
-		name := filepath.Base(filename)
-		if tmpl == nil {
-			tmpl = template.New(name)
-		} else {
-			tmpl = tmpl.New(name)
-		}
+// 	var tmpl *template.Template
+// 	for _, filename := range filenames {
+// 		name := filepath.Base(filename)
+// 		if tmpl == nil {
+// 			tmpl = template.New(name)
+// 		} else {
+// 			tmpl = tmpl.New(name)
+// 		}
 
-		b, err := ioutil.ReadFile(filename)
-		if err != nil {
-			return nil, err
-		}
+// 		b, err := ioutil.ReadFile(filename)
+// 		if err != nil {
+// 			return nil, err
+// 		}
 
-		mb, err := m.Bytes("text/html", b)
-		if err != nil {
-			return nil, err
-		}
-		tmpl.Parse(string(mb))
-	}
-	return tmpl, nil
-}
+// 		mb, err := m.Bytes("text/html", b)
+// 		if err != nil {
+// 			return nil, err
+// 		}
+// 		tmpl.Parse(string(mb))
+// 	}
+// 	return tmpl, nil
+// }
