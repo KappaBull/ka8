@@ -17,6 +17,14 @@ markup:
     startLevel: 2
     endLevel: 6
     ordered: false
+  goldmark:
+    renderer:
+      unsafe: true
+
+# Enable Disqus forum
+# disqusShortname: does-not-exist
+
+googleAnalytics: UA-97008781-2
 
 # Enable global emoji support
 enableEmoji: true
