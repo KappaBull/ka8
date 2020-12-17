@@ -1,0 +1,73 @@
+# section information
+section:
+  name: About
+  id: about
+  enable: true
+  weight: 1
+  showOnNavbar: true
+  template: sections/about.html
+
+# your designation
+designation: MobileGame Engineer
+# your company information
+# company:
+#   name: Example Co.
+#   url: "https://www.example.com"
+
+# your resume. this file path should be relative to you "static" directory
+# resume: "files/resume.pdf"
+
+# a summary about you
+summary: '大体Unity関連の自動化をしてるタイプのエンジニアです。 コンテナ関連も好物なのでよく触りがち。PC好き過ぎて24Uサーバーラックを買ったアホの子。'
+
+# your social links
+# give as many as you want. use font-awesome for the icons.
+socialLinks:
+- name: Email
+  icon: "fas fa-envelope"
+  url: "kappa8v11@gmail.com"
+- name: Github
+  icon: "fab fa-github"
+  url: "https://github.com/KappaBull"
+- name: Qiita
+  icon: "fas fa-sticky-note"
+  url: "https://qiita.com/KappaBull"
+- name: NicoNico
+  icon: "fas fa-tv"
+  url: "https://www.nicovideo.jp/user/1695679"
+- name: Youtube
+  icon: "fab fa-youtube"
+  url: "https://www.youtube.com/channel/UCJgf4UeHi5X7M9CTFuQBcig"
+- name: Twitter
+  icon: "fab fa-twitter"
+  url: "https://twitter.com/KappaBull"
+
+# your soft skills
+# give the percentage between 50 to 100 with 5 intervals.
+# currently supported colors: blue, yellow, pink, green, sky, orange
+softSkills:
+- name: Unity
+  percentage: 80
+  color: blue
+- name: Docker
+  percentage: 60
+  color: yellow
+- name: Golang
+  percentage: 60
+  color: pink
+- name: Jenkins
+  percentage: 85
+  color: orange
+- name: アニメ、Vtuber
+  percentage: 95
+  color: sky
+- name: 河童
+  percentage: 100
+  color: green
+# you can also provide color code instead of pre-defined color name
+# - name: Example 1
+#   percentage: 75
+#   color: "#00adb5"
+# - name: Example 2
+#   percentage: 65
+#   color: "#8b8383"

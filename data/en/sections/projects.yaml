@@ -1,0 +1,53 @@
+# section information
+section:
+  name: Projects
+  id: projects
+  enable: true
+  weight: 4
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# filter buttons
+buttons:
+- name: All
+  filter: "all"
+- name: Professional
+  filter: "professional"
+- name: Academic
+  filter: "academic"
+- name: Hobby
+  filter: "hobby"
+
+# your projects
+projects:
+- name: 運営中ソーシャルゲーム
+  role: Developer
+  timeline: "2020 -"
+  tags: ["professional", "SocialGame"]
+
+- name: ブラウザゲームのアプリ化開発
+  role: Developer
+  timeline: "2018 - 2019"
+  tags: ["professional", "SocialGame"]
+
+- name: アイ☆チュウ
+  logo: https://www.i-chu.jp/favicon.ico
+  url: "https://www.i-chu.jp/"
+  role: Developer
+  timeline: "2015 - 2018"
+  tags: ["professional","SocialGame"]
+
+- name: 社内インフラ整備
+  timeline: "2015 - 2018"
+  summary: 社内ソース管理システム構築、認証管理基盤作成、GSuite導入等
+  tags: ["professional","Docker"]
+
+#academic
+- name: AENEAS
+  logo: https://yt3.ggpht.com/ytc/AAUvwngClbwVSvyDjwo9zH1yHmXkd2Ig9hiUYlT9A4Dy=s88-c-k-c0x00ffffff-no-rj
+  role: Developer
+  timeline: "2014"
+  url: https://www.youtube.com/watch?v=vWbRYT1UxZM
+  summary: 東京ゲームショウ2014に出展
+  tags: ["academic"]
