@@ -18,7 +18,7 @@ designation: MobileGame Engineer
 # resume: "files/resume.pdf"
 
 # a summary about you
-summary: '大体Unity関連の自動化をしてるタイプのエンジニアです。 コンテナ技術関連も好物なのでよく触りがち。PC好き過ぎて自宅ラックを買ったアホの子。'
+summary: '大体Unity関連の自動化をしてるタイプのエンジニアです。 コンテナ関連も好物なのでよく触りがち。PC好き過ぎて24Uサーバーラックを買ったアホの子。'
 
 # your social links
 # give as many as you want. use font-awesome for the icons.
@@ -32,8 +32,9 @@ socialLinks:
 - name: Qiita
   icon: "fas fa-sticky-note"
   url: "https://qiita.com/KappaBull"
-
-  
+- name: NicoNico
+  icon: "fas fa-tv"
+  url: "https://www.nicovideo.jp/user/1695679"
 - name: Youtube
   icon: "fab fa-youtube"
   url: "https://www.youtube.com/channel/UCJgf4UeHi5X7M9CTFuQBcig"
