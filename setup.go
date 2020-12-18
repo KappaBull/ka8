@@ -5,12 +5,12 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"google.golang.org/appengine"
 )
 
 func main() {
 	r := gin.New()
-	r.Static("/asset", "./asset")
-	r.GET("/", func(c *gin.Context) {
+	r.Use(func(c *gin.Context) {
 		//SafeHeaders
 		c.Header("X-Content-Type-Options", "nosniff")
 		c.Header("X-XSS-Protection", "1; mode=block")
@@ -21,6 +21,8 @@ func main() {
 		c.Header("Cache-Control", "max-age=300, public")
 		c.Header("Last-Modified", now.Format(http.TimeFormat))
 	})
-
+	r.Static("/asset", "./asset")
+	r.Static("/images", "./images")
 	http.Handle("/", r)
+	appengine.Main()
 }
