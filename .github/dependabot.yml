@@ -1,6 +1,5 @@
 version: 2
 updates:
-# Update the git submodules
 - package-ecosystem: "gitsubmodule"
   directory: "/"
   schedule:
@@ -8,3 +7,9 @@ updates:
   labels:
   - "dependencies"
   - "automerge"
+- package-ecosystem: "github-actions"
+  directory: "/"
+  schedule:
+    interval: "daily"
+  labels:
+  - "dependencies"
