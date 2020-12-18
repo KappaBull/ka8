@@ -13,3 +13,9 @@ updates:
     interval: "daily"
   labels:
   - "dependencies"
+- package-ecosystem: "gomod"
+  directory: "/"
+  schedule:
+    interval: "daily"
+  labels:
+  - "dependencies"

@@ -1,4 +1,4 @@
-package ka8
+package main
 
 import (
 	"net/http"
@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func init() {
+func main() {
 	r := gin.New()
 	r.Static("/asset", "./asset")
 	r.GET("/", func(c *gin.Context) {
