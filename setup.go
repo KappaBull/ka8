@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	r := gin.New()
+	r := gin.Default()
 	r.Use(func(c *gin.Context) {
 		//SafeHeaders
 		c.Header("X-Content-Type-Options", "nosniff")
@@ -23,6 +23,6 @@ func main() {
 	})
 	r.Static("/asset", "./asset")
 	r.Static("/images", "./images")
-	http.Handle("/", r)
+	r.Run()
 	appengine.Main()
 }
