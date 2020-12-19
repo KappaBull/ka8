@@ -10,7 +10,11 @@ import (
 
 func main() {
 	r := gin.Default()
-	r.Use(func(c *gin.Context) {
+
+	r.Static("/asset", "./asset")
+	r.Static("/images", "./images")
+
+	r.GET("/", func(c *gin.Context) {
 		//SafeHeaders
 		c.Header("X-Content-Type-Options", "nosniff")
 		c.Header("X-XSS-Protection", "1; mode=block")
@@ -21,8 +25,7 @@ func main() {
 		c.Header("Cache-Control", "max-age=300, public")
 		c.Header("Last-Modified", now.Format(http.TimeFormat))
 	})
-	r.Static("/asset", "./asset")
-	r.Static("/images", "./images")
+
 	r.Run()
 	appengine.Main()
 }
