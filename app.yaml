@@ -1,4 +1,4 @@
-runtime: go11
+runtime: go112
 instance_class: F1
 automatic_scaling:
   min_idle_instances: automatic
