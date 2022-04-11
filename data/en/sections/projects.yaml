@@ -21,7 +21,14 @@ buttons:
 
 # your projects
 projects:
-- name: 運営中ソーシャルゲーム
+- name: 開発中
+  role: Developer
+  timeline: "2020 -"
+  tags: ["professional", "SocialGame"]
+
+- name: MAGICAMI
+  logo: /images/sections/projects/magicami.png
+  url: "https://www.magicami.jp/"
   role: Developer
   timeline: "2020 -"
   tags: ["professional", "SocialGame"]
@@ -32,7 +39,7 @@ projects:
   tags: ["professional", "SocialGame"]
 
 - name: アイ☆チュウ
-  logo: https://www.i-chu.jp/favicon.ico
+  logo: /images/sections/projects/i-chu.png
   url: "https://www.i-chu.jp/"
   role: Developer
   timeline: "2015 - 2018"
@@ -45,7 +52,7 @@ projects:
 
 #academic
 - name: AENEAS
-  logo: https://yt3.ggpht.com/ytc/AAUvwngClbwVSvyDjwo9zH1yHmXkd2Ig9hiUYlT9A4Dy=s88-c-k-c0x00ffffff-no-rj
+  logo: /images/sections/projects/aeneas.jpg
   role: Developer
   timeline: "2014"
   url: https://www.youtube.com/watch?v=vWbRYT1UxZM

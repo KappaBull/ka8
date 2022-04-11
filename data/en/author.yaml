@@ -1,7 +1,7 @@
 # some information about you
 name: "仁鳥はこ(KappaBull)"
 nickname: "河童"
-image: "images/avatar.png"
+image: "images/author/avatar.png"
 
 # greeting message before your name. it will default to "Hi! I am" if not provided
 greeting: "Hi, I am"

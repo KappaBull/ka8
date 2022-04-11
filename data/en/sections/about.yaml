@@ -8,7 +8,7 @@ section:
   template: sections/about.html
 
 # your designation
-designation: MobileGame Engineer
+designation: Build Engineer
 # your company information
 # company:
 #   name: Example Co.
@@ -18,7 +18,7 @@ designation: MobileGame Engineer
 # resume: "files/resume.pdf"
 
 # a summary about you
-summary: '大体Unity関連の自動化をしてるタイプのエンジニアです。 コンテナ関連も好物なのでよく触りがち。PC好き過ぎて24Uサーバーラックを買ったアホの子。'
+summary: '大体Unity関連の自動化をしてるタイプのエンジニアです。 PC好き過ぎて24Uサーバーラックを買ったアホ。'
 
 # your social links
 # give as many as you want. use font-awesome for the icons.
